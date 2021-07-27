@@ -20,8 +20,9 @@
                 <img src="../static/img/big-bar.png" th:src="@{/img/big-bar.png}" alt="colorful bar" />
             </div>
             <div class="card-content preview-post">
-                <h4 class="card-title" th:text="${ad.title}" /><
+                <h4 class="card-title" th:text="${ad.title}" />
                 <p th:text="${ad.description}" />
+                <p style="display: flex; justify-content: flex-end; color: maroon" th:text="${ad.user.username}" />
             </div>
             <div class="small-space" />
         </div>

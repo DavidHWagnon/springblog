@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/david-partials :: head ('Viewing Post')" />
+<!--<head th:replace="partials/david-partials :: head ('Viewing Post')"/>-->
 <body class="main">
-<nav th:replace="partials/david-partials :: navbar" />
+<nav th:replace="partials/navbar :: navbar"/>
 <header></header>
 <main class="container">
     <div class="card offwhite-body">
         <div class="card-image">
-            <img src="../static/img/big-bar.png" th:src="@{/img/big-bar.png}" alt="colorful bar" />
+            <img src="../static/img/big-bar.png" th:src="@{/img/big-bar.png}" alt="colorful bar"/>
         </div>
         <div class="card-content">
-            <h3 class="card-title" th:text="${post.title}" />
-            <p th:text="${post.body}" class="i-like-paragraphs" />
-            <br />
-            <form th:action="@{/posts/delete/{id}(id = ${post.title})}" method="post">
-                <button class="btn btn-sm btn-primary"></button>
+            <h3 class="card-title" th:text="${post.title}"/>
+            <p th:text="${post.body}" class="i-like-paragraphs"/>
+            <p style="display: flex; justify-content: flex-end; color: maroon" th:text="${post.user.email}" />
+            <br/>
+            <form th:action="@{/posts/delete/{id}(id = ${post.id})}" method="post">
+                <button class="waves-effect waves-purple btn-small indigo accent-3">Delete Post</button>
             </form>
+            <a th:href="@{/posts/edit/{id}(id = ${post.id})}"
+               class="waves-effect waves-purple btn-small indigo accent-3">Edit Post</a>
         </div>
     </div>
 </main>
-<footer th:replace="partials/david-partials :: footer" />
-<script th:replace="partials/david-partials :: m-script" />
-<script th:replace="partials/david-partials :: j-query" />
+<!--<footer th:replace="partials/david-partials :: footer"/>-->
+<!--<script th:replace="partials/david-partials :: m-script"/>-->
+<!--<script th:replace="partials/david-partials :: j-query"/>-->
 </body>
 </html>

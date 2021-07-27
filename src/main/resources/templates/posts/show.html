@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<!--<head th:replace="partials/david-partials :: head ('Viewing Post')"/>-->
+<head th:replace="partials/david-partials :: head ('Viewing Post')"/>
 <body class="main">
-<nav th:replace="partials/navbar :: navbar"/>
+<nav th:replace="partials/david-partials :: navbar"/>
 <header></header>
 <main class="container">
     <div class="card offwhite-body">
@@ -17,13 +17,13 @@
             <form th:action="@{/posts/delete/{id}(id = ${post.id})}" method="post">
                 <button class="waves-effect waves-purple btn-small indigo accent-3">Delete Post</button>
             </form>
-            <a th:href="@{/posts/edit/{id}(id = ${post.id})}"
+            <a th:href="@{/posts/{id}/edit(id = ${post.id})}"
                class="waves-effect waves-purple btn-small indigo accent-3">Edit Post</a>
         </div>
     </div>
 </main>
-<!--<footer th:replace="partials/david-partials :: footer"/>-->
-<!--<script th:replace="partials/david-partials :: m-script"/>-->
-<!--<script th:replace="partials/david-partials :: j-query"/>-->
+<footer th:replace="partials/david-partials :: footer"/>
+<script th:replace="partials/david-partials :: m-script"/>
+<script th:replace="partials/david-partials :: j-query"/>
 </body>
 </html>

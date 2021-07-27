@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/david-partials :: head ('Viewing All Posts')" />
 <body class="main">
-<nav th:replace="partials/navbar :: navbar" />
-
-<th:block th:replace="partials/style :: styles"/>
+<nav th:replace="partials/david-partials :: navbar" />
 <header></header>
 <main class="container">
     <div class="card head-card">
+        <div class="card-image">
+            <img src="../static/img/big-bar.png" th:src="@{/img/big-bar.png}" alt="colorful bar" />
+        </div>
         <div class="card-content">
             <h4 class="card-title">Viewing All Posts</h4>
             <p>Click any post to view all of its content.</p>
@@ -14,24 +16,19 @@
     </div>
     <div th:each="post : ${posts}">
         <div class="card offwhite-body">
+            <div class="card-image">
+                <img src="../static/img/big-bar.png" th:src="@{/img/big-bar.png}" alt="colorful bar" />
+            </div>
             <div class="card-content preview-post">
                 <h4 class="card-title" th:text="${post.title}" />
                 <p th:text="${post.body}" />
             </div>
-            <form th:action="@{/posts/edit/{id}(id=${post.id})}" method="get">
-                <button  type="submit" name="edit">Edit</button>
-                <input type="hidden" name="title" th:value="${post.title}">
-                <input type="hidden" name="body" th:value="${post.body}">
-                <input type="hidden" name="postId" th:value="${post.id}">
-            </form>
-            <form th:action="@{/posts/delete}" method="post">
-                <button type="submit" name="delete">Delete</button>
-                <input hidden name=postId th:value="${post.id}">
-            </form>
             <div class="small-space" />
         </div>
     </div>
 </main>
-<th:block th:replace="partials/scripts :: scripts"/>
+<footer th:replace="partials/david-partials :: footer" />
+<script th:replace="partials/david-partials :: m-script" />
+<script th:replace="partials/david-partials :: j-query" />
 </body>
 </html>

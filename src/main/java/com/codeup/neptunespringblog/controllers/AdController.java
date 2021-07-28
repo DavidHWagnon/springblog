@@ -1,6 +1,8 @@
 package com.codeup.neptunespringblog.controllers;
 import com.codeup.neptunespringblog.models.Ad;
 import com.codeup.neptunespringblog.models.AdRepository;
+import com.codeup.neptunespringblog.models.Ad;
+import com.codeup.neptunespringblog.models.AdRepository;
 
 import com.codeup.neptunespringblog.models.UserRepository;
 import org.springframework.stereotype.Controller;

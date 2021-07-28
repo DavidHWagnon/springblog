@@ -1,11 +1,18 @@
 package com.codeup.neptunespringblog.controllers;
-
+import com.codeup.neptunespringblog.services.EmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HelloController {
+
+    private final EmailService emailSvc;
+
+    public HelloController(EmailService emailSvc) {
+        this.emailSvc = emailSvc;
+    }
+
     @GetMapping("/hello")
     @ResponseBody
     public String hello() {
@@ -27,6 +34,7 @@ public class HelloController {
     @PostMapping("/join")
     public String joinCohort(@RequestParam(name = "cohort") String cohort, Model model) {
         model.addAttribute("cohort", "Welcome to " + cohort + "!");
+        emailSvc.prepareAndSend("admin@example.com", "Hello! Welcome to " + cohort + "!", "Thank you for attending our Web Development program!");
         return "join";
     }
 

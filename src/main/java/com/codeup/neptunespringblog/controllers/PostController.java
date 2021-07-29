@@ -1,16 +1,13 @@
 package com.codeup.neptunespringblog.controllers;
 
 import com.codeup.neptunespringblog.models.Post;
-import com.codeup.neptunespringblog.models.PostRepository;
+import com.codeup.neptunespringblog.repositories.PostRepository;
 import com.codeup.neptunespringblog.models.User;
-import com.codeup.neptunespringblog.models.UserRepository;
+import com.codeup.neptunespringblog.repositories.UserRepository;
 import com.codeup.neptunespringblog.services.EmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class PostController {

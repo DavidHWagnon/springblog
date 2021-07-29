@@ -1,10 +1,8 @@
 package com.codeup.neptunespringblog.controllers;
 import com.codeup.neptunespringblog.models.Ad;
-import com.codeup.neptunespringblog.models.AdRepository;
-import com.codeup.neptunespringblog.models.Ad;
-import com.codeup.neptunespringblog.models.AdRepository;
+import com.codeup.neptunespringblog.repositories.AdRepository;
 
-import com.codeup.neptunespringblog.models.UserRepository;
+import com.codeup.neptunespringblog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

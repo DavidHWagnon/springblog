@@ -1,5 +1,6 @@
-package com.codeup.neptunespringblog.models;
+package com.codeup.neptunespringblog.repositories;
 
+import com.codeup.neptunespringblog.models.Ad;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -4,6 +4,7 @@ import com.codeup.neptunespringblog.models.Post;
 import com.codeup.neptunespringblog.models.PostRepository;
 import com.codeup.neptunespringblog.models.User;
 import com.codeup.neptunespringblog.models.UserRepository;
+import com.codeup.neptunespringblog.services.EmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +16,12 @@ import java.util.List;
 public class PostController {
     private final PostRepository postDao;
     private final UserRepository userDao;
+    private final EmailService emailService;
 
-    public PostController(PostRepository postDao, UserRepository userDao) {
+    public PostController(PostRepository postDao, UserRepository userDao, EmailService emailService) {
         this.postDao = postDao;
         this.userDao = userDao;
+        this.emailService = emailService;
     }
 
     @GetMapping("/posts")
@@ -63,6 +66,7 @@ public class PostController {
         User user = userDao.getById(1L);
         post.setUser(user);
         postDao.save(post);
+        emailService.prepareAndSend(post, "You created: " + post.getTitle(), post.getBody());
         return "redirect:/posts";
     }
 

@@ -24,6 +24,15 @@ public class User {
     public User() {
     }
 
+    public User(User copy){
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password= copy.password;
+        ads = copy.ads;
+        posts = copy.posts;
+    }
+
     public User(long id, String username, String email, String password) {
         this.id = id;
         this.username = username;
@@ -86,5 +95,8 @@ public class User {
 
     public void setPosts(List<Post> posts) {
         this.posts = posts;
+    }
+
+    public void save(User user) {
     }
 }
